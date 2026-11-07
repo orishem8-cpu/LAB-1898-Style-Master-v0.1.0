@@ -29,9 +29,6 @@ jobs:
       - name: Configure
         run: cmake -S . -B build -A x64 -DCMAKE_BUILD_TYPE=Release -DFETCHCONTENT_QUIET=OFF
 
-      - name: List generated build targets
-        run: cmake --build build --config Release --target help
-
       # Build the deliverable VST3 first so it can be uploaded even if the
       # optional Standalone target fails afterwards.
       - name: Build VST3
