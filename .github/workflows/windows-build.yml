@@ -1,0 +1,25 @@
+name: Windows VST3 build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -A x64 -DCMAKE_BUILD_TYPE=Release
+      - name: Build VST3 and Standalone
+        run: cmake --build build --config Release --target LAB1898StyleMaster_VST3 LAB1898StyleMaster_Standalone
+      - name: Upload VST3 bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: LAB-1898-Style-Master-VST3
+          path: build/LAB1898StyleMaster_artefacts/Release/VST3/LAB 1898 Style Master.vst3
+          if-no-files-found: error
