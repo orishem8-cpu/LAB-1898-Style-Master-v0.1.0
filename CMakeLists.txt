@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(LAB1898StyleMaster VERSION 0.1.0 LANGUAGES CXX)
+project(LAB1898StyleMaster VERSION 0.1.0 LANGUAGES C CXX)
 
 # JUCE is fetched at configure time. The 8.0.17-security tag keeps this project
 # on the JUCE 8 line specified in the original technical brief.
